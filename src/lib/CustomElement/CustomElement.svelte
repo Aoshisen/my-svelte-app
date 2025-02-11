@@ -17,7 +17,6 @@
 			return customEl!;
 		}
 	}
-	videoJs.registerComponent(COMPONENT_NAME, Comp);
 	onMount(() => {
 		videoJs.registerComponent(COMPONENT_NAME, Comp);
 	});

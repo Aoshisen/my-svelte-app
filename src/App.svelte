@@ -1,42 +1,51 @@
-<script lang="ts">
+<script context="module" lang="ts">
   import videoJs from "video.js";
   import "video.js/dist/video-js.css";
+  import "videojs-youtube";
   import { onMount, onDestroy } from "svelte";
   import type Player from "video.js/dist/types/player";
   import { pseudo, rewriteFullScreen } from "./helper/fullscreen";
   import CustomElement, {
     COMPONENT_NAME,
   } from "./lib/CustomElement/CustomElement.svelte";
+</script>
 
-  let videoElement: HTMLVideoElement;
+<script lang="ts">
+  // video 元素
+  let videoElement: HTMLVideoElement | null;
+  // 使用video.js 初始化后的播放器实例
   let player: Player | null;
-
-  // 定义 Video.js 播放器配置
-  const sources = [
-    {
-      src: "https://vjs.zencdn.net/v/oceans.mp4",
-      type: "video/mp4",
-    },
-  ];
-
-  const videoJsConfig = {
-    controls: true,
-    fluid: true,
-    sources,
-  };
-
-  function playerReady(this: Player) {
-    //添加自定义的元素
-    this.addChild(COMPONENT_NAME, { ass: "1111" });
-    //重写fullscreen方法
-    if (!this.fsApi_.fullscreenEnabled) {
-      rewriteFullScreen.call(this);
-    }
-  }
 
   // 初始化播放器
   const initializePlayer = () => {
-    player = videoJs(videoElement, videoJsConfig, playerReady);
+    const sources = [
+      {
+        src: "https://vjs.zencdn.net/v/oceans.mp4",
+        type: "video/mp4",
+      },
+      {
+        type: "video/youtube",
+        src: "https://www.youtube.com/watch?v=xjS6SftYQaQ",
+      },
+    ];
+
+    const videoJsConfig = {
+      controls: true,
+      fluid: true,
+      sources,
+      techOrder: ["youtube"],
+    };
+
+    function playerReady(this: Player) {
+      //添加自定义的元素,并传递自定义的参数
+      this.addChild(COMPONENT_NAME, { ass: "1111" });
+      if (!this.fsApi_.fullscreenEnabled) {
+        //重写fullscreen方法
+        rewriteFullScreen.call(this);
+      }
+    }
+
+    return videoJs(videoElement!, videoJsConfig, playerReady);
   };
 
   // 清理播放器资源
@@ -47,12 +56,13 @@
     }
   };
 
+  //挂载
   onMount(() => {
-    initializePlayer();
-
-    player?.muted(true);
+    player = initializePlayer();
+    player.muted(true);
   });
 
+  //销毁
   onDestroy(() => {
     cleanupPlayer();
   });

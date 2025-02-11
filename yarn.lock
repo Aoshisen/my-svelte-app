@@ -658,7 +658,7 @@ url-toolkit@^2.2.1:
   resolved "https://registry.npmmirror.com/url-toolkit/-/url-toolkit-2.2.5.tgz#58406b18e12c58803e14624df5e374f638b0f607"
   integrity sha512-mtN6xk+Nac+oyJ/PrI7tzfmomRVNFIWKUbG8jdYFt52hxbiReFAXIjYskvu64/dvuW71IcB7lV8l0HvZMac6Jg==
 
-"video.js@^7 || ^8", video.js@^8.21.0:
+"video.js@5.x || 6.x || 7.x || 8.x", "video.js@^7 || ^8", video.js@^8.21.0:
   version "8.21.0"
   resolved "https://registry.npmmirror.com/video.js/-/video.js-8.21.0.tgz#ce097aa2cd06dcbada5379215e3781d703d9d16b"
   integrity sha512-zcwerRb257QAuWfi8NH9yEX7vrGKFthjfcONmOQ4lxFRpDAbAi+u5LAjCjMWqhJda6zEmxkgdDpOMW3Y21QpXA==
@@ -694,6 +694,13 @@ videojs-vtt.js@0.15.5:
   integrity sha512-yZbBxvA7QMYn15Lr/ZfhhLPrNpI/RmCSCqgIff57GC2gIrV5YfyzLfLyZMj0NnZSAz8syB4N0nHXpZg9MyrMOQ==
   dependencies:
     global "^4.3.1"
+
+videojs-youtube@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/videojs-youtube/-/videojs-youtube-3.0.1.tgz#f15eab72e15c6ac4796cf2111a25b789541af73a"
+  integrity sha512-0gKgag7Zno/dDwIdk+h48ODKDulR4IW62RxGE81PrMwi0OX/wUcKO6m1j+DFYI+7qjtWMZTKnbtQoHGxvUrFQg==
+  dependencies:
+    video.js "5.x || 6.x || 7.x || 8.x"
 
 vite@^6.1.0:
   version "6.1.0"

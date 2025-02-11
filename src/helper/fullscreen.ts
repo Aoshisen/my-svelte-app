@@ -8,8 +8,7 @@ const enablePseudoFullscreen = (player: Player) => {
 		return;
 	}
 	player.isFullscreen_ = true;
-	pseudo.set(true)
-
+	pseudo.set(true);
 	player.el_.classList.add("vjs-fullscreen");
 };
 
@@ -19,7 +18,7 @@ const disablePseudoFullscreen = (player: Player) => {
 		return;
 	}
 	player.isFullscreen_ = false;
-	pseudo.set(true)
+	pseudo.set(false);
 	player.el_.classList.remove("vjs-fullscreen");
 };
 
