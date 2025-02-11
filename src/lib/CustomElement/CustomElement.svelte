@@ -1,27 +1,25 @@
-<script lang="ts">
+<script context="module">
 	import videoJs from "video.js";
 	import "video.js/dist/video-js.css";
 	import { onMount } from "svelte";
 	import type Player from "video.js/dist/types/player";
+	export const COMPONENT_NAME = "CustomElement";
+</script>
 
+<script lang="ts">
 	let customEl: HTMLDivElement;
-
-	const MyComponent = videoJs.getComponent("Component");
-
-	class CustomElement extends MyComponent {
+	const _Component = videoJs.getComponent("Component");
+	class Comp extends _Component {
 		constructor(player: Player, options: any) {
-			console.log(options, "<<<<<<<<<");
 			super(player, options);
 		}
 		createEl() {
 			return customEl!;
 		}
 	}
-
-	videoJs.registerComponent("CustomElement", CustomElement);
-
+	videoJs.registerComponent(COMPONENT_NAME, Comp);
 	onMount(() => {
-		videoJs.registerComponent("CustomElement", CustomElement);
+		videoJs.registerComponent(COMPONENT_NAME, Comp);
 	});
 </script>
 

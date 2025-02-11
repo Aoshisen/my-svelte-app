@@ -4,7 +4,9 @@
   import { onMount, onDestroy } from "svelte";
   import type Player from "video.js/dist/types/player";
   import { pseudo, rewriteFullScreen } from "./helper/fullscreen";
-  import CustomElement from "./lib/ CustomElement/CustomElement.svelte";
+  import CustomElement, {
+    COMPONENT_NAME,
+  } from "./lib/CustomElement/CustomElement.svelte";
 
   let videoElement: HTMLVideoElement;
   let player: Player | null;
@@ -25,7 +27,7 @@
 
   function playerReady(this: Player) {
     //添加自定义的元素
-    this.addChild("CustomElement", { ass: "1111" });
+    this.addChild(COMPONENT_NAME, { ass: "1111" });
     //重写fullscreen方法
     if (!this.fsApi_.fullscreenEnabled) {
       rewriteFullScreen.call(this);
