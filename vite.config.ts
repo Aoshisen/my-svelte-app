@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [svelte()],
   server: {
     host: '0.0.0.0',
-    port: 3000,  // 修改为你想要的端口
+    port: 3000,
     strictPort: true,
+    open: true
   }
 })
