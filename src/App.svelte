@@ -8,6 +8,7 @@
   import CustomElement, {
     COMPONENT_NAME,
   } from "./lib/CustomElement/CustomElement.svelte";
+  import Progress from "./lib/Progress/Progress.svelte";
 </script>
 
 <script lang="ts">
@@ -81,6 +82,10 @@
   <CustomElement />
 </div>
 
+<div class="progress">
+  <Progress value={20}  />
+</div>
+
 <style>
   .video-container {
     width: 100%;
@@ -101,5 +106,8 @@
     transform: none !important;
     inset: 0px !important;
     margin: 0px !important;
+  }
+  .progress {
+    margin-top: 10px;
   }
 </style>
