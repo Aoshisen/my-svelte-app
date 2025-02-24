@@ -17,6 +17,7 @@
     "typescript": "~5.7.2",
     "video.js": "^8.21.0",
     "videojs-youtube": "^3.0.1",
-    "vite": "^6.1.0"
+    "vite": "^6.1.0",
+    "vite-plugin-mkcert": "^1.17.6"
   }
 }

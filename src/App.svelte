@@ -10,9 +10,13 @@
       type: "video/mp4",
     },
     {
-      type: "video/youtube",
-      src: "https://www.youtube.com/watch?v=xjS6SftYQaQ",
+      src: "https://upselling-apps.oss-cn-shenzhen.aliyuncs.com/upselling_video/20250210/173915039050420250210-091944.mp4",
+      type: "video/mp4",
     },
+    // {
+    //   type: "video/youtube",
+    //   src: "https://www.youtube.com/watch?v=xjS6SftYQaQ",
+    // },
   ];
 </script>
 
@@ -21,7 +25,7 @@
     <Video {sources} />
   </div>
   <div class="progress">
-    <Progress value={2} />
+    <Progress value={2} color="blue" />
   </div>
 </div>
 

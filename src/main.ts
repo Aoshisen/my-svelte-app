@@ -1,6 +1,8 @@
 import { mount } from 'svelte'
 import App from './App.svelte'
-const target = document.getElementById('app')!
-const app = mount(App, { target })
+const className = ".groupLine.totalPrice";
 
-export default app
+// const target = document.getElementById('app')!
+const app = mount(App, { target:document.body })
+export default app;
+

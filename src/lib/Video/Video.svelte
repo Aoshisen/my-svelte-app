@@ -20,7 +20,7 @@
 	// video 元素
 	let videoElement: HTMLVideoElement | null;
 	// 使用video.js 初始化后的播放器实例
-	let player: Player | null;
+	export let player: Player | null;
 
 	export let sources: Source[];
 
@@ -30,7 +30,7 @@
 			controls: true,
 			fluid: true,
 			sources,
-			techOrder: ["youtube"],
+			// techOrder: ["youtube"],
 		};
 
 		function playerReady(this: Player) {
@@ -63,6 +63,7 @@
 	onDestroy(() => {
 		cleanupPlayer();
 	});
+
 </script>
 
 <div
